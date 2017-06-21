@@ -1,0 +1,6 @@
+1. Create and Send message (form).
+2. Show messages list.
+3. Open message.
+4. Close message.
+5. Remove message.
+6. Archive message.
