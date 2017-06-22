@@ -1,0 +1,21 @@
+.message-text{
+	display: block;
+	max-height: 46px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: -o-ellipsis-lastline;
+}
+.table{
+	font-size: 14px;
+}
+.table td{
+	vertical-align: middle;
+}
+.del-message{
+	color: #f00;
+}
+.new-message{
+	font-weight: 700;
+}
