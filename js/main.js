@@ -1,63 +1,20 @@
-// Get data
-function getData() {
-	"use strict";
-	
-	var xhr = new XMLHttpRequest(),
-		xhrObj;
-	
-	xhr.open('GET', 'messages-list.json', true);
-	
-	xhr.onreadystatechange = function () {
-		if (xhr.status === 200 && xhr.readyState === 4) {
-			
-			xhrObj = JSON.parse(xhr.responseText);
-			
-			// Create messages list HTMl
-			createMessagesList(xhrObj);
-		}
-	};
-	
-	xhr.send();
-}
+window.addEventListener('DOMContentLoaded', function () {	
+	var mode = document.body.getAttribute('data-mode');
 
-// Create date
-function createDate() {
-	"use strict";
+	getMessages('GET', 'messages.json', mode); // Get data
 	
-	var date = new Date(),
-		day = date.getDay(),
-		month = date.getMonth() + 1,
-		year = date.getFullYear();
+	var table = document.querySelector('.table-messages'),
+		showMessageBlock = document.querySelector('.show-message-block'),
+		openedMessageBlock = document.querySelector('.opened-message-block'),
+		hideBtn = document.querySelector('.hide-btn');
 	
-	if (day < 10) day = '0' + day;	
-	if (month < 10)	month = '0' + month;
+	// Open message
+	table.addEventListener('click', function() {
+		showMessage(showMessageBlock, openedMessageBlock);
+	});
 	
-	var customDate = day + '/' + month + '/' + year;
-
-	return customDate;
-}
-
-function createMessagesList(obj) {
-	"use strict";
-	
-	var tableMessages = document.querySelector('#tableMessages tbody');
-	
-	var messages = '';
-	
-	for (let i = 0; i < obj.length; i++) {
-		messages += '<tr class="new-message">' +
-						'<td><i class="fa fa-trash del-message"></td>' +
-						'<td>' + obj[i].author + '</td>' +
-						'<td><a href="#" class="message-text">' + obj[i].text + '</a></td>' +
-						'<td>' + createDate() + '</td>' +
-					'</tr>';
-	}
-	
-	tableMessages.insertAdjacentHTML('afterBegin', messages);
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-	"use strict";
-	
-	getData();
+	// Clise message
+	hideBtn.addEventListener('click', function() {
+		hideMessage(showMessageBlock, openedMessageBlock);
+	});
 });

@@ -1,3 +1,6 @@
+.messages-container{
+	margin-top: 20px
+}
 .message-text{
 	display: block;
 	max-height: 46px;
@@ -10,6 +13,9 @@
 .table{
 	font-size: 14px;
 }
+.table button{
+	cursor: pointer;
+}
 .table td{
 	vertical-align: middle;
 }
@@ -18,4 +24,22 @@
 }
 .new-message{
 	font-weight: 700;
+}
+.show-message-block{
+	display: none;
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 6px;
+	padding: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.hide-btn{
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	margin-bottom: 30px;
 }

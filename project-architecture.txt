@@ -1,6 +1,5 @@
-1. Create and Send message (form).
-2. Show messages list.
-3. Open message.
-4. Close message.
-5. Remove message.
-6. Archive message.
+1. getMessages(method, url, mode)
+2. createMessagesList(obj, insertBlock, mode)
+3. showMessage(showBlock, openedBlock)
+4. hideMessage(showBlock, openedBlock)
+5. renderTemplate(template, insertBlock, place)
